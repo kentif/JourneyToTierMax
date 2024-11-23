@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 499088469458955409}
   - component: {fileID: 3653704259175889936}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Treasure
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1019127119, guid: eab1a6f92291641448b293281463e088, type: 3}
+  m_Sprite: {fileID: 1816474547, guid: 5a58fd1cd3a5a3141b6b095e3142253a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -12,7 +12,6 @@ public class PlayerStats : MonoBehaviour
     public float playerLife = 3;   // How much health the player currently has 
     public int currentCoins = 0;   // How many coins has the player collected 
     private float playerMaxHealth = 3; // What is the max health the player can have 
-    private int maxCoins = 0; // What is the amount of coins in the level 
 
     // Rigidbody 
     private Rigidbody2D rigidbody2D; // Controls player speed 
@@ -28,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     public Image heartImage;            // Update the Heart Image of the player 
     public TextMeshProUGUI coinText;    // Update the text showing coins collected 
     public GameObject CoinParent;       // Parent we check to see how many coins are in the level 
+    public int maxCoins = 50;
 
     // Auido 
     public AudioSource deathSFX;  // Death sound effect 
@@ -40,9 +40,9 @@ public class PlayerStats : MonoBehaviour
         // Looks at the Coin Parent Game Object and check how many children it has, thats' the number
         // Of coins that are in the level, each time we destroy a coin the childCount would lower 
         // So we save the inforomation at the start of the game 
-        maxCoins = CoinParent.transform.childCount;
         // Updates the UI to show the proper values of the level 
-        coinText.text = currentCoins + "/" + maxCoins;
+        maxCoins = CoinParent.transform.childCount;
+        coinText.text = "TIER" + currentCoins;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,11 +52,18 @@ public class PlayerStats : MonoBehaviour
             case coinTag:
                 {
                     // Plays Sound Effect 
-                    coinSFX.Play();
+                    //coinSFX.Play();
                     // Increase the value of coins by 1
-                    currentCoins++;
+                    currentCoins = currentCoins + 10;
                     // Updates the UI 
-                    coinText.text = currentCoins + "/" + maxCoins;
+                    maxCoins = CoinParent.transform.childCount;
+
+                    coinText.text = "TIER " + currentCoins;
+                    if (currentCoins >= 50)
+                    {
+                        coinText.text = "TIER MAX";
+
+                    }
                     // Destroys the coins
                     Destroy(collision.gameObject);
                     break;
@@ -65,7 +72,7 @@ public class PlayerStats : MonoBehaviour
             case deathTag:
                 {
                     // Play Sound Effect
-                    deathSFX.Play();
+                    //deathSFX.Play();
                     // Make the speed zero 
                     rigidbody2D.velocity = Vector2.zero;
                     // Moves the player to the respawn point 
@@ -73,7 +80,7 @@ public class PlayerStats : MonoBehaviour
                     // Take away players life 
                     playerLife--;
                     // Updates the UI 
-                    heartImage.fillAmount = playerLife / playerMaxHealth;
+                    //heartImage.fillAmount = playerLife / playerMaxHealth;
                     // If the player has lost all of their lives reset the level 
                     if (playerLife <= 0)
                     {
@@ -93,7 +100,7 @@ public class PlayerStats : MonoBehaviour
                         // If the player is missing health we increase their life
                         playerLife++;
                         // Update the UI to show new health 
-                        heartImage.fillAmount = playerLife / playerMaxHealth;
+                        //heartImage.fillAmount = playerLife / playerMaxHealth;
                         // Destroy the health object 
                         Destroy(collision.gameObject);
                     }

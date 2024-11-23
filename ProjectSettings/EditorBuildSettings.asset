@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NarrativeHomeworkAssets/Scenes/Narrative_Level_1.unity
     guid: 4b43b97a7964c9044a2d94c16e348d8e
+  - enabled: 1
+    path: Assets/JourneyToTIerMax/World1.unity
+    guid: c9aa2ee3475930e4bb7b436e163d85d9
+  - enabled: 1
+    path: Assets/JourneyToTIerMax/MainMenu.unity
+    guid: c8cef10682637e445828e9677f0ded66
+  - enabled: 1
+    path: Assets/JourneyToTIerMax/World2.unity
+    guid: 9554db342ed8e574f80a8ef231bb2ed2
   m_configObjects: {}
