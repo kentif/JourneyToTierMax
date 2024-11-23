@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/JourneyToTIerMax/World2.unity
     guid: 9554db342ed8e574f80a8ef231bb2ed2
+  - enabled: 1
+    path: Assets/JourneyToTIerMax/World3.unity
+    guid: a138ab249d0955c44bc9ed72e853e849
   m_configObjects: {}
